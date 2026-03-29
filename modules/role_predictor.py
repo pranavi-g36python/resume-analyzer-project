@@ -1,9 +1,10 @@
+import os
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import KNeighborsClassifier
 
-# load dataset
-data = pd.read_csv("dataset/jobs.csv")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+data = pd.read_csv(os.path.join(BASE_DIR, "dataset", "jobs.csv"))
 
 # combine skills column
 X = data["skills"]
